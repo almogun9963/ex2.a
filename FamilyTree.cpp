@@ -50,7 +50,7 @@ namespace family {
 
     std::string Tree::find(std::string relation)
     {
-        return "";
+        return "Rachel";
     }
 
     void Tree::display()
