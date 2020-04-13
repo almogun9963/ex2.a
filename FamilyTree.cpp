@@ -63,20 +63,20 @@ namespace family {
     void Tree::remove(std::string name)
     {
 
-        if(name == this->r->getName()){
-            throw std::runtime_error("can't remove you");
-        }
-        node* n = (node*)(this->findp(name));
-        node* n_child = n->getChild();
-
-        if( n_child->getLeft()->getName() == name && n_child->getLeft() != nullptr )
-        {
-            n_child->setLeft(nullptr);
-        }
-        else
-            {
-            n_child->setRight(nullptr);
-            }
-        n = this->destroy(n);
+//        if(name == this->r->getName()){
+//            throw std::runtime_error("can't remove you");
+//        }
+//        node* n = (node*)(this->findp(name));
+//        node* n_child = n->getChild();
+//
+//        if( n_child->getLeft()->getName() == name && n_child->getLeft() != nullptr )
+//        {
+//            n_child->setLeft(nullptr);
+//        }
+//        else
+//            {
+//            n_child->setRight(nullptr);
+//            }
+//        n = this->destroy(n);
     }
 }
