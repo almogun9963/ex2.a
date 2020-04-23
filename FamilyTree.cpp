@@ -50,7 +50,7 @@ namespace family {
 
     std::string Tree::find(std::string relation)
     {
-        node* n = (node*)(relation);
+        node* n = (node*)(this->findp(name));
         int isMother = 0;
         int len = relation.length();
         if(relation.find("mother") < len || relation.find("Mother") < len)
