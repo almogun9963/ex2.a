@@ -50,7 +50,13 @@ namespace family {
 
     std::string Tree::find(std::string relation)
     {
-        return "Rachel";
+        int level = print_level(relation);
+        int isMother = 0;
+        int len = relation.length();
+        if(relation.find("mother") < len || relation.find("Mother") < len)
+            isMother = 1;
+        Node* n = (Node*)(this->search_by_level(level, isMother));
+        return n->getName();
     }
 
     void Tree::display()
@@ -62,21 +68,17 @@ namespace family {
 
     void Tree::remove(std::string name)
     {
+        if(name == this->root->getName())
+            throw std::runtime_error("Can not remove the root!");
 
-//        if(name == this->r->getName()){
-//            throw std::runtime_error("can't remove you");
-//        }
-//        node* n = (node*)(this->findp(name));
-//        node* n_child = n->getChild();
-//
-//        if( n_child->getLeft()->getName() == name && n_child->getLeft() != nullptr )
-//        {
-//            n_child->setLeft(nullptr);
-//        }
-//        else
-//            {
-//            n_child->setRight(nullptr);
-//            }
-//        n = this->destroy(n);
+        Node* n = (Node*)(this->search_by_name(name));
+        Node* n_child = n->getChild();
+
+        if(n_child->getLeft() != nullptr && n_child->getLeft()->getName() == name)
+            n_child->setLeft(nullptr);
+        else
+            n_child->setRight(nullptr);
+
+        n = this->destroy_family(n);
     }
 }
