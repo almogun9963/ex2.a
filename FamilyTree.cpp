@@ -55,7 +55,7 @@ namespace family {
         int len = relation.length();
         if(relation.find("mother") < len || relation.find("Mother") < len)
             isMother = 1;
-        node* n = (node*)(this->search_by_level(level, isMother));
+
         return n->getName();
     }
 
@@ -71,7 +71,7 @@ namespace family {
         if(name == this->root->getName())
             throw std::runtime_error("Can not remove the root!");
 
-        node* n = (node*)(this->search_by_name(name));
+        node* n = (node*)(this->findp(name));
         node* n_child = n->getChild();
 
         if(n_child->getLeft() != nullptr && n_child->getLeft()->getName() == name)
