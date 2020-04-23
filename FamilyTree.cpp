@@ -50,6 +50,7 @@ namespace family {
 
     std::string Tree::find(std::string relation)
     {
+        node* n = (node*)(relation);
         int isMother = 0;
         int len = relation.length();
         if(relation.find("mother") < len || relation.find("Mother") < len)
@@ -67,9 +68,6 @@ namespace family {
 
     void Tree::remove(std::string name)
     {
-        if(name == this->root->getName())
-            throw std::runtime_error("Can not remove the root!");
-
         node* n = (node*)(this->findp(name));
         node* n_child = n->getChild();
 
