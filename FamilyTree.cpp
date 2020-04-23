@@ -76,6 +76,6 @@ namespace family {
         else
             n_child->setRight(nullptr);
 
-        n = this->destroy_family(n);
+        n = this->destroy(n);
     }
 }
